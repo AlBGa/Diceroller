@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dicecontainer {
+  margin: 200px 50%;
+}
+
+.dice {
+  height: 300px;
+  width: 300px;
+  transform-style: preserve-3d;
+  transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.side {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  backface-visibility: hidden;
+}
+
+.side-one {
+  transform: translateZ(100px);
+  background-color: blue;
+}
+
+.side-two {
+  transform: translateX(-100px) rotateY(-90deg);
+  background: #F6F;
+}
+
+.side-three {
+  transform: translateY(-100px) rotateX(90deg);
+  background: #7F8;
+}
+
+.side-four {
+  transform: translateY(100px) rotateX(-90deg);
+  background: #FF3345;
+}
+
+.side-five {
+  transform: translateX(100px) rotateY(90deg);
+  background: #DC6C7C;
+}
+
+.side-six {
+  transform: translateZ(-100px) rotateX(180deg);
+  background: lightblue;
+}
+
+.dot {
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  background: #000;
+}
+
+.one {
+  top: 75px;
+  left: 75px;
+}
+
+.two {
+  top: 35px;
+  right: 35px;
+}
+.two:before {
+  position: absolute;
+  content: "";
+  top: 80px;
+  right: 80px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.three-left {
+  top: 130px;
+  right: 130px;
+}
+
+.three-right {
+  top: 70px;
+  right: 70px;
+}
+.three-right:before {
+  position: absolute;
+  content: "";
+  top: -60px;
+  right: -60px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.four-left {
+  top: 20px;
+  right: 20px;
+}
+.four-left:before {
+  position: absolute;
+  content: "";
+  top: 110px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.four-right {
+  top: 20px;
+  right: 130px;
+}
+.four-right:before {
+  position: absolute;
+  content: "";
+  top: 110px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.five-left {
+  top: 25px;
+  right: 125px;
+}
+.five-left:before {
+  position: absolute;
+  content: "";
+  top: 99px;
+  right: -101px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.five-right {
+  top: 75px;
+  right: 75px;
+}
+.five-right:before {
+  position: absolute;
+  content: "";
+  top: 49px;
+  right: 49px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+.five-right:after {
+  position: absolute;
+  content: "";
+  top: -51px;
+  right: -51px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.six-left {
+  top: 134px;
+  right: 20px;
+}
+.six-left:before {
+  position: absolute;
+  content: "";
+  top: -126px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+.six-left:after {
+  position: absolute;
+  content: "";
+  top: -63px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.six-right {
+  top: 134px;
+  right: 129px;
+}
+.six-right:before {
+  position: absolute;
+  content: "";
+  top: -63px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+.six-right:after {
+  position: absolute;
+  content: "";
+  top: -126px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+/*# sourceMappingURL=style.css.map */
