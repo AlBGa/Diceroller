@@ -4,15 +4,26 @@
   box-sizing: border-box;
 }
 
+header {
+  width: 100%;
+  background: #2e35c1;
+  & h1 {
+    color: #fff;
+  }
+  & p {
+    color: #fff;
+  }
+}
+
 .dicecontainer {
   margin: 200px 50%;
 }
 
 .dice {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   transform-style: preserve-3d;
-  transform: rotate3d(0, 1, 0, 180deg);
+  transform: rotate3d(0, 0, 0, 000deg);
 }
 
 .side {
@@ -155,4 +166,32 @@
   &:after {
     @include dotsecondary(-126px, -1px);
   }
+}
+
+.rolling {
+  animation: roll-one 1s linear infinite;
+}
+
+@keyframes roll-one {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  5% {}
+  10% {}
+  15% {}
+  20% {} 
+  25% {} 
+  30% {}
+  35% {}
+  40% {}
+  45% {}
+  50% { transform: rotate3d(1, 1, 1, 180deg) scale3d(1.5, 1.5, 1.5);}
+  55% {}
+  60% {}
+  65% {}
+  70% {}
+  75% {}
+  80% {}
+  85% {}
+  90% {}
+  95% {}
+  100% {transform: rotate3d(1, 1, 1, 360deg) scale3d(0.5, 0.5, 0.5);}
 }
