@@ -23,7 +23,7 @@ header {
   height: 200px;
   width: 200px;
   transform-style: preserve-3d;
-  transform: rotate3d(0, 0, 0, 000deg);
+  transform: scale3d(0.5, 0.5, 0.5);
 }
 
 .side {
@@ -168,30 +168,69 @@ header {
   }
 }
 
-.rolling {
-  animation: roll-one 1s linear infinite;
+@mixin rolling($keyframe) {
+  animation: $keyframe 1s linear;
+  animation-fill-mode: forwards;
+}
+
+.rollone {
+  @include rolling(roll-one);
+}
+
+.rolltwo {
+  @include rolling(roll-two);
+}
+
+.rollthree {
+  @include rolling(roll-three);
+}
+
+.rollfour {
+  @include rolling(roll-four);
+}
+
+.rollfive {
+  @include rolling(roll-five);
+}
+
+.rollsix {
+  @include rolling(roll-six);
 }
 
 @keyframes roll-one {
   0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
-  5% {}
-  10% {}
-  15% {}
-  20% {} 
-  25% {} 
-  30% {}
-  35% {}
-  40% {}
-  45% {}
   50% { transform: rotate3d(1, 1, 1, 180deg) scale3d(1.5, 1.5, 1.5);}
-  55% {}
-  60% {}
-  65% {}
-  70% {}
-  75% {}
-  80% {}
-  85% {}
-  90% {}
-  95% {}
   100% {transform: rotate3d(1, 1, 1, 360deg) scale3d(0.5, 0.5, 0.5);}
+}
+
+@keyframes roll-two {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  50% { transform: rotate3d(1, 1, -1, -120deg) scale3d(1.5, 1.5, 1.5);}
+  100% {transform: rotate3d(1, 1, -1, -240deg) scale3d(0.5, 0.5, 0.5);}
+}
+
+@keyframes roll-three {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  50% { transform: rotate3d(1, 1, -1, 120deg) scale3d(1.5, 1.5, 1.5);}
+  100% {transform: rotate3d(1, 1, -1, 240deg) scale3d(0.5, 0.5, 0.5);}
+}
+
+@keyframes roll-four {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  50% { transform: rotate3d(1, 1, 1, -120deg) scale3d(1.5, 1.5, 1.5);}
+  100% {transform: rotate3d(1, 1, 1, -240deg) scale3d(0.5, 0.5, 0.5);}
+}
+
+@keyframes roll-five {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  50% { transform: rotate3d(1, 1, 1, 120deg) scale3d(1.5, 1.5, 1.5);}
+  100% {transform: rotate3d(1, 1, 1, 240deg) scale3d(0.5, 0.5, 0.5);}
+}
+
+@keyframes roll-six {
+  0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
+  25% { transform: rotate3d(1, 1, 1, 180deg) scale3d(0.9, 0.9, 0.9);}
+  50% { transform: rotate3d(1, 1, 1, 120deg) scale3d(1.5, 1.5, 1.5);}
+  75% { transform: rotate3d(1, 1, -1, 180deg) scale3d(0.9, 0.9, 0.9);}
+  100% {transform: rotate3d(1, 0, 0, -180deg) scale3d(0.5, 0.5, 0.5);}
 }
