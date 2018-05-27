@@ -17,7 +17,7 @@ document.getElementById("roll").addEventListener("click", function(e) {
 	clearclass(die);
 	var rollednumber = Math.random() * 6 + 1;
 	console.log(parseInt(rollednumber));
-	
+	void die.offsetWidth;
 	
 	switch(parseInt(rollednumber)) {
 		case 1:
