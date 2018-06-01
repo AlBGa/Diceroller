@@ -7,19 +7,32 @@
 * 6: rotate3d(0, 1, 0, 180deg), rotate3d(1, 0, 0, 180deg), rotate3d(1, 1, 0, 180deg)
 */ 
 
-function clearclass(elem) {
+function clearClass(elem) {
 	elem.classList.remove("rollone", "rolltwo", "rollthree", "rollfour", "rollfive", "rollsix");
+}
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function showResult(container, number) {
+	console.log("And the result is...")
+	await sleep(1100);
+	console.log(number + "!");
+	container.querySelectorAll("#result")[0].innerHTML = number;
 }
 
 document.getElementById("roll").addEventListener("click", function(e) {
 	e.preventDefault();
 	var die = document.getElementById("maindie");
-	clearclass(die);
-	var rollednumber = Math.random() * 6 + 1;
-	console.log(parseInt(rollednumber));
-	void die.offsetWidth;
+	var container = die.closest(".dicecontainer");
+	clearClass(die);
+	var rollednumber = parseInt(Math.random() * 6 + 1);
+	showResult(container, rollednumber);
+	 
+	void die.offsetWidth; //This makes it so adding and removing a class works as intended so you can roll the same number in a row. It stays static otherwise.
 	
-	switch(parseInt(rollednumber)) {
+	switch(rollednumber) {
 		case 1:
 			die.classList.add("rollone");
 			break;
@@ -42,4 +55,5 @@ document.getElementById("roll").addEventListener("click", function(e) {
 			console.log("This ain't supposed to happen.");
 			break;
 	}
+
 });

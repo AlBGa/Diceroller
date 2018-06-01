@@ -16,12 +16,20 @@ header {
 }
 
 .dicecontainer {
-  margin: 200px 50%;
+  margin: 50px 50px;
+  width: 250px;
+  text-align: center;
+}
+
+.resultpart {
+  font-size: 3em;
+  font-weight: bold;
 }
 
 .dice {
   height: 200px;
   width: 200px;
+  margin: auto;
   transform-style: preserve-3d;
   transform: scale3d(0.5, 0.5, 0.5);
 }
@@ -227,6 +235,7 @@ header {
   100% {transform: rotate3d(1, 1, 1, 240deg) scale3d(0.5, 0.5, 0.5);}
 }
 
+/** This one is wonky as hell **/
 @keyframes roll-six {
   0% { transform: rotate3d(1, 1, 1, 0deg) scale3d(0.5,0.5,0.5);}
   25% { transform: rotate3d(1, 1, 1, 180deg) scale3d(0.9, 0.9, 0.9);}
