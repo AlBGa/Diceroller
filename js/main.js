@@ -7,14 +7,19 @@
 * 6: rotate3d(0, 1, 0, 180deg), rotate3d(1, 0, 0, 180deg), rotate3d(1, 1, 0, 180deg)
 */ 
 
+var newdice = document.getElementById("maindie");
+var newcontainer = newdice.closest(".dicecontainer");
+
 function clearClass(elem) {
 	elem.classList.remove("rollone", "rolltwo", "rollthree", "rollfour", "rollfive", "rollsix");
 }
 
+//This returns a promise that gets fullfiled when the specified ms has passed.
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//This takes care of showing the number AFTER the dice has stopped rolling, that is, 1 second after rolling, and an extra 0.1 to make it easier on the eye
 async function showResult(container, number) {
 	console.log("And the result is...")
 	await sleep(1100);
@@ -22,10 +27,13 @@ async function showResult(container, number) {
 	container.querySelectorAll("#result")[0].innerHTML = number;
 }
 
-document.getElementById("roll").addEventListener("click", function(e) {
-	e.preventDefault();
-	var die = document.getElementById("maindie");
-	var container = die.closest(".dicecontainer");
+//Taking this of the event listener would make it easier to make multirolls. I think.
+function roll() {
+	var container = newcontainer.cloneNode(true);
+	document.getElementById("rolldice").appendChild(container);
+	var die = container.querySelectorAll("#maindie")[0];
+	console.log(container);
+	console.log(die);
 	clearClass(die);
 	var rollednumber = parseInt(Math.random() * 6 + 1);
 	showResult(container, rollednumber);
@@ -55,5 +63,6 @@ document.getElementById("roll").addEventListener("click", function(e) {
 			console.log("This ain't supposed to happen.");
 			break;
 	}
+}
 
-});
+document.getElementById("roll").addEventListener("click", roll);
