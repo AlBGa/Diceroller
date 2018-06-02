@@ -9,6 +9,7 @@
 
 var newdice = document.getElementById("maindie");
 var newcontainer = newdice.closest(".dicecontainer");
+var total = 0;
 
 function clearClass(elem) {
 	elem.classList.remove("rollone", "rolltwo", "rollthree", "rollfour", "rollfive", "rollsix");
@@ -21,19 +22,20 @@ function sleep(ms) {
 
 //This takes care of showing the number AFTER the dice has stopped rolling, that is, 1 second after rolling, and an extra 0.1 to make it easier on the eye
 async function showResult(container, number) {
-	console.log("And the result is...")
+	//console.log("And the result is...")
 	await sleep(1100);
-	console.log(number + "!");
+	//console.log(number + "!");
+	total += number;
+	document.getElementById("total").innerHTML = total;
 	container.querySelectorAll("#result")[0].innerHTML = number;
 }
 
 //Taking this of the event listener would make it easier to make multirolls. I think.
 function roll() {
 	var container = newcontainer.cloneNode(true);
+	container.classList.remove("first");
 	document.getElementById("rolldice").appendChild(container);
 	var die = container.querySelectorAll("#maindie")[0];
-	console.log(container);
-	console.log(die);
 	clearClass(die);
 	var rollednumber = parseInt(Math.random() * 6 + 1);
 	showResult(container, rollednumber);
@@ -65,4 +67,39 @@ function roll() {
 	}
 }
 
+var ldice = document.getElementById("lossjpg");
+var newLContainer = ldice.closest(".dicecontainer");
+
+async function soll() {
+	var container1 = newLContainer.cloneNode(true);
+	container1.classList.remove("first");
+	var die = container1.querySelectorAll("#lossjpg")[0];
+	die.classList.add("rollone");
+	document.getElementById("meem").appendChild(container1);
+	await sleep(1200);
+
+	var container2 = newLContainer.cloneNode(true);
+	container2.classList.remove("first");
+	var die = container2.querySelectorAll("#lossjpg")[0];
+	die.classList.add("rolltwo");
+	document.getElementById("meem").appendChild(container2);
+	await sleep(1200);
+
+	var container3 = newLContainer.cloneNode(true);
+	container3.classList.remove("first");
+	var die = container3.querySelectorAll("#lossjpg")[0];
+	die.classList.add("rollthree");
+	document.getElementById("meem").appendChild(container3);
+	await sleep(1200);
+
+	var container4 = newLContainer.cloneNode(true);
+	container4.classList.remove("first");
+	var die = container4.querySelectorAll("#lossjpg")[0];
+	die.classList.add("rollfour");
+	document.getElementById("meem").appendChild(container4);
+
+
+}
+
+document.getElementById("ding").addEventListener("click", soll);
 document.getElementById("roll").addEventListener("click", roll);

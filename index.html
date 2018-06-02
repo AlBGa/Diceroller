@@ -7,13 +7,14 @@
 </head>
 <body>
 	<header>
-		<h1>Roll the CSS3 dice!</h1>
+		<h1>Roll the <span id="ding">CSS3</span> dice!</h1>
 		<p>This is a simple 3d dice, made in css with javascript support to make it look like the real thing!</p>
 	</header>
 	<main>
 		<input type="button" id="roll" value="Roll the dice">
+		<p id="total"></p>
 		<div id="rolldice">
-			<section class="dicecontainer">
+			<section class="dicecontainer first">
 				<div id="maindie" class="dice rolling">
 					<div class="side side-one"><span class="dot one"></span></div>
 					<div class="side side-two"><span class="dot two"></span></div>
@@ -23,6 +24,16 @@
 					<div class="side side-five"><span class="dot five-left"></span><span class="dot five-right"></span></div>
 				</div>
 				<p class="resultpart" id="result"></p>
+			</section>
+		</div>
+		<div id="meem">
+			<section class="dicecontainer first">
+				<div id="lossjpg">
+					<div class="side-loss side-one"><span class="dot six-right"></span></div>
+					<div class="side-loss side-two-l"><span class="dot six-left-loss"></span><span class="dot six-right"></span></div>
+					<div class="side-loss side-three-l"><span class="dot six-left"></span><span class="dot six-right"></span></div>
+					<div class="side-loss side-four-l"><span class="dot six-ded"></span><span class="dot six-right"></span></div>
+				</div>
 			</section>
 		</div>
 	</main>

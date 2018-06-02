@@ -15,6 +15,17 @@ header {
   }
 }
 
+.first {
+  display: none;
+}
+
+#total {
+  position: relative;
+  margin: 20px auto;
+  width: 200px;
+  font-size: 1.6em;
+}
+
 .dicecontainer {
   margin: 50px 50px;
   width: 250px;
@@ -26,7 +37,6 @@ header {
   font-size: 3em;
   font-weight: bold;
 }
-
 
 
 .dice {
@@ -178,7 +188,67 @@ header {
     @include dotsecondary(-126px, -1px);
   }
 }
+/**
+* Loss
+**/ 
 
+#meem {
+  width: 705px;
+}
+
+#lossjpg {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: scale3d(0.5, 0.5, 0.5);
+}
+
+.side-loss {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  backface-visibility: hidden;
+}
+
+.side-two-l {
+  transform: translateX(-100px) rotateY(-90deg) rotate(90deg);
+    background: #F6F;
+}
+
+.side-three-l {
+  transform: translateY(-100px) rotateX(90deg) rotate(90deg);
+  background: #7F8;
+}
+
+.side-four-l {
+  transform: translateY(100px) rotateX(-90deg) rotate(180deg);
+  background: #FF3345;
+}
+
+.six-left-loss {
+  top: 134px;
+  right: 20px;
+  &:before {
+    @include dotsecondary(-63px, -1px);
+  }
+}
+
+.six-ded {
+  top: 30px;
+  right: 20px;
+  &:before {
+    @include dotsecondary(-1px, 53px);
+  }
+  &:after {
+    @include dotsecondary(-1px, 108px);
+  }  
+}
+
+/**
+* End loss
+**/
 @mixin rolling($keyframe) {
   animation: $keyframe 1s linear;
   animation-fill-mode: forwards;

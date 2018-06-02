@@ -15,6 +15,17 @@ header p {
   color: #fff;
 }
 
+.first {
+  display: none;
+}
+
+#total {
+  position: relative;
+  margin: 20px auto;
+  width: 200px;
+  font-size: 1.6em;
+}
+
 .dicecontainer {
   margin: 50px 50px;
   width: 250px;
@@ -243,6 +254,87 @@ header p {
   background: #000;
 }
 
+/**
+* Loss
+**/
+#meem {
+  width: 705px;
+}
+
+#lossjpg {
+  height: 200px;
+  width: 200px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transform: scale3d(0.5, 0.5, 0.5);
+}
+
+.side-loss {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  backface-visibility: hidden;
+}
+
+.side-two-l {
+  transform: translateX(-100px) rotateY(-90deg) rotate(90deg);
+  background: #F6F;
+}
+
+.side-three-l {
+  transform: translateY(-100px) rotateX(90deg) rotate(90deg);
+  background: #7F8;
+}
+
+.side-four-l {
+  transform: translateY(100px) rotateX(-90deg) rotate(180deg);
+  background: #FF3345;
+}
+
+.six-left-loss {
+  top: 134px;
+  right: 20px;
+}
+.six-left-loss:before {
+  position: absolute;
+  content: "";
+  top: -63px;
+  right: -1px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+.six-ded {
+  top: 30px;
+  right: 20px;
+}
+.six-ded:before {
+  position: absolute;
+  content: "";
+  top: -1px;
+  right: 53px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+.six-ded:after {
+  position: absolute;
+  content: "";
+  top: -1px;
+  right: 108px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #000;
+}
+
+/**
+* End loss
+**/
 .rollone {
   animation: roll-one 1s linear;
   animation-fill-mode: forwards;
