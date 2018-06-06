@@ -15,6 +15,33 @@ function clearClass(elem) {
 	elem.classList.remove("rollone", "rolltwo", "rollthree", "rollfour", "rollfive", "rollsix");
 }
 
+
+function assignclass(rollednumber) {
+	switch(rollednumber) {
+		case 1:
+			return "rollone";
+			break;
+		case 2:
+			return "rolltwo";
+			break;
+		case 3:
+			return "rollthree";
+			break;
+		case 4:
+			return "rollfour";
+			break;
+		case 5:
+			return "rollfive";
+			break;
+		case 6:
+			return "rollsix";
+			break;
+		default:
+			console.log("This ain't supposed to happen.");
+			break;
+	}
+}
+
 //This returns a promise that gets fullfiled when the specified ms has passed.
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
@@ -39,34 +66,29 @@ function roll() {
 	clearClass(die);
 	var rollednumber = parseInt(Math.random() * 6 + 1);
 	showResult(container, rollednumber);
-	 
+	die.classList.add(assignclass(rollednumber));
 	void die.offsetWidth; //This makes it so adding and removing a class works as intended so you can roll the same number in a row. It stays static otherwise.
 	
-	switch(rollednumber) {
-		case 1:
-			die.classList.add("rollone");
-			break;
-		case 2:
-			die.classList.add("rolltwo");
-			break;
-		case 3:
-			die.classList.add("rollthree");
-			break;
-		case 4:
-			die.classList.add("rollfour");
-			break;
-		case 5:
-			die.classList.add("rollfive");
-			break;
-		case 6:
-			die.classList.add("rollsix");
-			break;
-		default:
-			console.log("This ain't supposed to happen.");
-			break;
+
+}
+
+async function tenroll() {
+	var damagecontrol = true;
+	document.getElementById("rolldice").innerHTML = "";
+	for (var i = 0; i < 10; i++) {
+		var container = newcontainer.cloneNode(true);
+		container.classList.remove("first");
+		document.getElementById("rolldice").appendChild(container);
+		var die = container.querySelectorAll("#maindie")[0];
+		var rollednumber = parseInt(Math.random() * 6 + 1);
+		showResult(container, rollednumber);
+		die.classList.add(assignclass(rollednumber));
+		await sleep(1200);	
 	}
 }
 
+
+/** Memes **/
 var ldice = document.getElementById("lossjpg");
 var newLContainer = ldice.closest(".dicecontainer");
 
@@ -97,9 +119,8 @@ async function soll() {
 	var die = container4.querySelectorAll("#lossjpg")[0];
 	die.classList.add("rollfour");
 	document.getElementById("meem").appendChild(container4);
-
-
 }
 
 document.getElementById("ding").addEventListener("click", soll);
 document.getElementById("roll").addEventListener("click", roll);
+document.getElementById("rollten").addEventListener("click", tenroll);
