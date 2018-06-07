@@ -68,11 +68,13 @@ function roll() {
 	showResult(container, rollednumber);
 	die.classList.add(assignclass(rollednumber));
 	void die.offsetWidth; //This makes it so adding and removing a class works as intended so you can roll the same number in a row. It stays static otherwise.
-	
-
 }
 
 async function tenroll() {
+	document.getElementById("roll").setAttribute("disabled", "");
+	document.getElementById("rollten").setAttribute("disabled", "");
+	document.getElementById("total").innerHTML = "";
+	total = 0;
 	var damagecontrol = true;
 	document.getElementById("rolldice").innerHTML = "";
 	for (var i = 0; i < 10; i++) {
@@ -85,6 +87,8 @@ async function tenroll() {
 		die.classList.add(assignclass(rollednumber));
 		await sleep(1200);	
 	}
+	document.getElementById("roll").removeAttribute("disabled");
+	document.getElementById("rollten").removeAttribute("disabled");
 }
 
 
