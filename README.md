@@ -4,6 +4,7 @@ This is a 3d Dice made with CSS3. It uses several options to make it look like t
 
 The rolling animation is made with @keyframes and classes, that are given with javascript, and the CSS is made with the SASS preprocessor.
 
-2/6 update: Now you can roll indifinetly, and the page will keep track of the total result of each roll. 
+Now it works with promises to roll ten dice in sequence.
+
 
 Try it live: https://albga.github.io/Diceroller/
