@@ -70,6 +70,7 @@ function roll() {
 	void die.offsetWidth; //This makes it so adding and removing a class works as intended so you can roll the same number in a row. It stays static otherwise.
 }
 
+//Making it async to be able to use awat and use the sleep promise to ensure the 10 dice are thrown in order
 async function tenroll() {
 	document.getElementById("roll").setAttribute("disabled", "");
 	document.getElementById("rollten").setAttribute("disabled", "");
@@ -92,7 +93,7 @@ async function tenroll() {
 }
 
 
-/** Memes **/
+/** Jokes **/
 var ldice = document.getElementById("lossjpg");
 var newLContainer = ldice.closest(".dicecontainer");
 
